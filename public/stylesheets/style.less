@@ -1,0 +1,99 @@
+
+/* ********************** les variables *********************************/
+@background: #efefef;
+@background-Darken:darken(@background,5%);
+@background-lighten: lighten(@background,5%);
+@shadowBox:#444444;
+
+/* ********************** les mixins *********************************/
+.margin(@top:10px, @bottom:10px, @left:10px, @right:10px ){
+  margin-top: @top;
+  margin-bottom: @bottom;
+  margin-left: @left;
+  margin-right: @right;
+}
+
+.img-box-shadow {
+  position: relative;
+  background-color: #FFFFFF;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #DDDDDD;
+  border-radius: 18px;
+}
+.img-box-shadow:before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 50%;
+      top: 160px;
+      bottom: 15px;
+      left: 10px;
+      -webkit-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+      box-shadow: 0px 15px 10px #777777;
+  }
+.img-box-shadow:after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 50%;
+      top: 160px;
+      right: 10px;
+      bottom: 15px;
+      -webkit-transform: rotate(3deg);
+      transform: rotate(3deg);
+      box-shadow: 0px 15px 10px #777777;
+  }
+
+/* ********************** les balises *********************************/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: @background;
+}
+
+footer {
+  position:absolute;
+  bottom:0;
+  height:45px;
+  width:100%;
+}
+
+section{
+  background: @background-Darken;
+  .margin();
+  padding: 5px;
+  box-shadow: 10px 10px 5px @shadowBox;
+  border-radius: 5px;
+
+  .titreSection{
+    margin: 5px;
+    padding: 5px;
+
+  }
+}
+
+.navbar{
+  background: @background-Darken+5%;
+  border: none;
+  box-shadow: 5px 5px 5px @shadowBox;
+}
+
+.headValleLoire {
+  padding: 0px;
+  height: 160px;
+  .headImgValleLoire {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.index-title{
+  font-family: 'Lobster Two', cursive;
+  text-shadow: 2px 2px 8px @shadowBox;
+}
+
+.index-img{
+  .img-box-shadow;
+}
